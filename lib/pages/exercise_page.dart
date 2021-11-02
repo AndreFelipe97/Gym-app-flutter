@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gym/components/app_bar_widgets_componets.dart';
 import 'package:gym/components/card_exercise.dart';
+import 'package:gym/components/drawer_componet.dart';
 import 'package:gym/components/stopwatch_component.dart';
 import 'package:gym/models/exercise_model.dart';
 import 'package:gym/theme/app_theme.dart';
@@ -30,6 +31,7 @@ class _ExercisePageState extends State<ExercisePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidgetsComponents(titleText: "Exercícios"),
+      drawer: DraweComponent(),
       body: Container(
         decoration: BoxDecoration(color: AppTheme.colors.background),
         child: SafeArea(
@@ -45,15 +47,17 @@ class _ExercisePageState extends State<ExercisePage> {
               SizedBox(
                 height: 24,
               ),
-              Container(
-                height: 492,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      for (var i = 0; i < execise.length; i++)
-                        CardExercise(
-                            execise[i].exercise, execise[i].repetition),
-                    ],
+              SingleChildScrollView(
+                child: Container(
+                  height: 492,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        for (var i = 0; i < execise.length; i++)
+                          CardExercise(
+                              execise[i].exercise, execise[i].repetition),
+                      ],
+                    ),
                   ),
                 ),
               ),

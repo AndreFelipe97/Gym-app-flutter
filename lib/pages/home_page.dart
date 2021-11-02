@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gym/components/app_bar_widgets_componets.dart';
 import 'package:gym/components/card_exercise_day.dart';
+import 'package:gym/components/drawer_componet.dart';
+import 'package:gym/components/list_title_drawer_componet.dart';
 import 'package:gym/models/exercise_model.dart';
 import 'package:gym/theme/app_theme.dart';
 
@@ -49,6 +51,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidgetsComponents(titleText: "Treinos"),
+      drawer: DraweComponent(),
       body: Container(
         decoration: BoxDecoration(color: AppTheme.colors.background),
         child: Center(
