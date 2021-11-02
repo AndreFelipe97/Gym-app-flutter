@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gym/models/exercise_model.dart';
 import 'package:gym/theme/app_theme.dart';
 
@@ -27,7 +28,7 @@ class CardExerciseDay extends StatelessWidget {
           child: Center(
               child: Text(
             title,
-            style: TextStyle(
+            style: GoogleFonts.inter(
                 fontSize: 16,
                 color: AppTheme.colors.fontColorOrange,
                 fontWeight: FontWeight.bold),

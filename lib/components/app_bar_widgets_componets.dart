@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gym/theme/app_theme.dart';
 
 class AppBarWidgetsComponents extends AppBar {
@@ -9,8 +10,8 @@ class AppBarWidgetsComponents extends AppBar {
           backgroundColor: AppTheme.colors.topBar,
           title: Text(
             titleText,
-            style:
-                TextStyle(color: AppTheme.colors.fontColorOrange, fontSize: 18),
+            style: GoogleFonts.roboto(
+                color: AppTheme.colors.fontColorOrange, fontSize: 25),
           ),
           centerTitle: true,
         );

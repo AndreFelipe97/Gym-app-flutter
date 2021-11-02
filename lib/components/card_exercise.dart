@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gym/theme/app_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CardExercise extends StatelessWidget {
   final String exercise;
@@ -16,14 +17,12 @@ class CardExercise extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              exercise,
-              style: TextStyle(color: AppTheme.colors.fontColorOrange),
-            ),
-            Text(
-              repetition,
-              style: TextStyle(color: AppTheme.colors.fontColorOrange),
-            ),
+            Text(exercise,
+                style:
+                    GoogleFonts.inter(color: AppTheme.colors.fontColorOrange)),
+            Text(repetition,
+                style:
+                    GoogleFonts.inter(color: AppTheme.colors.fontColorOrange)),
           ],
         ),
       ),

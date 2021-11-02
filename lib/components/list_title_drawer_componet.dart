@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gym/theme/app_theme.dart';
 
 class ListTitleDrawerComponent extends StatelessWidget {
@@ -22,8 +23,8 @@ class ListTitleDrawerComponent extends StatelessWidget {
         ),
         Text(
           description,
-          style:
-              TextStyle(color: AppTheme.colors.fontColorOrange, fontSize: 20),
+          style: GoogleFonts.roboto(
+              color: AppTheme.colors.fontColorOrange, fontSize: 20),
         )
       ]),
       onTap: () {

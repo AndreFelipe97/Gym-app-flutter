@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gym/theme/app_theme.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
@@ -60,7 +61,7 @@ class _StopwatchComponentState extends State<StopwatchComponent> {
                         padding: EdgeInsets.all(8),
                         child: Text(
                           displayTime,
-                          style: TextStyle(
+                          style: GoogleFonts.inter(
                               fontSize: 40,
                               color: AppTheme.colors.fontColorOrange,
                               fontWeight: FontWeight.bold),
@@ -94,7 +95,7 @@ class _StopwatchComponentState extends State<StopwatchComponent> {
                             },
                             child: Text(
                               'Start',
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.inter(color: Colors.white),
                             ),
                           ),
                         ),
@@ -110,7 +111,7 @@ class _StopwatchComponentState extends State<StopwatchComponent> {
                             },
                             child: Text(
                               'Reset',
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.inter(color: Colors.white),
                             ),
                           ),
                         ),
