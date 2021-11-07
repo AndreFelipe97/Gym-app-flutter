@@ -6,6 +6,7 @@ abstract class AppColors {
   Color get fontColorWhite;
   Color get fontColorOrange;
   Color get backgroundCard;
+  Color get button;
 }
 
 class AppColorDefault implements AppColors {
@@ -23,4 +24,7 @@ class AppColorDefault implements AppColors {
 
   @override
   Color get backgroundCard => Color(0xFF3E3B47);
+
+  @override
+  Color get button => Color(0xFF666666);
 }

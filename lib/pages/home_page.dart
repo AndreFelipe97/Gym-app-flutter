@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gym/components/app_bar_widgets_componets.dart';
 import 'package:gym/components/card_exercise_day.dart';
-import 'package:gym/components/drawer_componet.dart';
-import 'package:gym/components/list_title_drawer_componet.dart';
 import 'package:gym/models/exercise_model.dart';
+import 'package:gym/models/users_model.dart';
 import 'package:gym/theme/app_theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -49,10 +48,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final UserModel user =
+        ModalRoute.of(context)!.settings.arguments as UserModel;
+
     return Scaffold(
-      appBar: AppBarWidgetsComponents(titleText: "Treinos"),
-      drawer: DraweComponent(),
+      appBar: AppBarWidgetsComponents(user: user),
       body: Container(
+        height: 505,
         decoration: BoxDecoration(color: AppTheme.colors.background),
         child: Center(
           child: Column(

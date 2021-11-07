@@ -30,7 +30,7 @@ class _ExercisePageState extends State<ExercisePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidgetsComponents(titleText: "Exercícios"),
+      // appBar: AppBarWidgetsComponents(titleText: "Exercícios"),
       drawer: DraweComponent(),
       body: Container(
         decoration: BoxDecoration(color: AppTheme.colors.background),
@@ -49,7 +49,7 @@ class _ExercisePageState extends State<ExercisePage> {
               ),
               SingleChildScrollView(
                 child: Container(
-                  height: 492,
+                  height: 424,
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
