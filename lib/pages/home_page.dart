@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gym/components/app_bar_widgets_componets.dart';
 import 'package:gym/components/card_exercise_day.dart';
+import 'package:gym/components/drawer_componet.dart';
 import 'package:gym/models/exercise_model.dart';
 import 'package:gym/models/users_model.dart';
 import 'package:gym/theme/app_theme.dart';
 
 class HomePage extends StatelessWidget {
-  List<ExerciseModel> trainingA = [
+  final List<ExerciseModel> trainingA = [
     ExerciseModel("Barra fixa graviton", "3 x falha"),
     ExerciseModel("Puxado frente pp", "4 x 10 (lento)"),
     ExerciseModel("Puxador frente triangulo", "4 x 10"),
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
     ExerciseModel("Remo", "4 x 10")
   ];
 
-  List<ExerciseModel> trainingB = [
+  final List<ExerciseModel> trainingB = [
     ExerciseModel("Supino reto halteres + barra", "4 x 8 + 8"),
     ExerciseModel("Supino inclinado", "4 x 15"),
     ExerciseModel("Peck deck 2 tempos", "4 x 8"),
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
     ExerciseModel("Flexão plantar em sentado", "4 x falha")
   ];
 
-  List<ExerciseModel> trainingC = [
+  final List<ExerciseModel> trainingC = [
     ExerciseModel("Agachamento livre", "3 x 15"),
     ExerciseModel("Passada", "4 voltas"),
     ExerciseModel("Leg 45 agachamento sem carga", "4 x 10 + 15"),
@@ -52,9 +53,11 @@ class HomePage extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as UserModel;
 
     return Scaffold(
-      appBar: AppBarWidgetsComponents(user: user),
+      drawer: DraweComponent(),
+      appBar: AppBarWidgetsComponents(
+        titleText: "Home",
+      ),
       body: Container(
-        height: 505,
         decoration: BoxDecoration(color: AppTheme.colors.background),
         child: Center(
           child: Column(

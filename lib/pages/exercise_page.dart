@@ -30,7 +30,7 @@ class _ExercisePageState extends State<ExercisePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBarWidgetsComponents(titleText: "Exercícios"),
+      appBar: AppBarWidgetsComponents(titleText: "Exercícios"),
       drawer: DraweComponent(),
       body: Container(
         decoration: BoxDecoration(color: AppTheme.colors.background),

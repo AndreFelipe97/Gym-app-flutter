@@ -1,12 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:gym/components/button_login_social.dart';
-import 'package:gym/controllers/login/logi_controller.dart';
+import 'package:gym/pages/login/login_controller.dart';
 import 'package:gym/services/login/login_services.dart';
-import 'package:gym/states/login/login_state.dart';
+import 'package:gym/pages/login/login_state.dart';
 import 'package:gym/theme/app_theme.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -16,28 +14,16 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   late LoginController controller;
 
-  void initializeFirebase() async {
-    try {
-      await Firebase.initializeApp();
-    } catch (e) {
-      Fluttertoast.showToast(
-          msg: "Não é possível entrar agora",
-          toastLength: Toast.LENGTH_SHORT,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0);
-    }
-  }
-
   @override
   void initState() {
-    initializeFirebase();
     controller = LoginController(
         service: LoginServiceImplementation(),
-        onUpdate: () {
+        onUpdate: () async {
           if (controller.state is LoginStateSuccess) {
             final user = (controller.state as LoginStateSuccess).user;
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            prefs.setString('userName', user.name!);
+            prefs.setString('userPhotoUrl', user.photoUrl!);
             Navigator.pushReplacementNamed(context, "/home", arguments: user);
           } else {
             setState(() {});

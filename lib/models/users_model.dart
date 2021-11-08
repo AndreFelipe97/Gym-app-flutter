@@ -1,10 +1,10 @@
 import 'package:google_sign_in/google_sign_in.dart';
 
 class UserModel {
-  String? name;
-  String email;
-  String id;
-  String? photoUrl;
+  final String? name;
+  final String email;
+  final String id;
+  final String? photoUrl;
 
   UserModel({this.name, required this.email, required this.id, this.photoUrl});
 

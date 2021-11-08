@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:gym/services/login/login_services.dart';
-import 'package:gym/states/login/login_state.dart';
+import 'package:gym/pages/login/login_state.dart';
 
 class LoginController {
   LoginState state = LoginStateEmpty();

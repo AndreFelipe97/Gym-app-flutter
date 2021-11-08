@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:gym/models/users_model.dart';
 import 'package:gym/theme/app_theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'list_title_drawer_componet.dart';
 
-class DraweComponent extends StatelessWidget {
+class DraweComponent extends StatefulWidget {
+  @override
+  State<DraweComponent> createState() => _DraweComponentState();
+}
+
+class _DraweComponentState extends State<DraweComponent> {
+  String photoUrl = '';
+
+  void getData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      photoUrl = prefs.getString('userPhotoUrl') as String;
+    });
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -15,15 +37,18 @@ class DraweComponent extends StatelessWidget {
             DrawerHeader(
               decoration: BoxDecoration(color: AppTheme.colors.background),
               child: Center(
-                  child: Icon(
-                Icons.account_circle,
-                color: AppTheme.colors.fontColorOrange,
-                size: 105,
-              )),
+                  child: photoUrl == ''
+                      ? Icon(
+                          Icons.account_circle,
+                          color: AppTheme.colors.fontColorOrange,
+                          size: 105,
+                        )
+                      : CircleAvatar(
+                          backgroundImage: NetworkImage(photoUrl),
+                          radius: 70,
+                        )),
             ),
             ListTitleDrawerComponent(Icons.home, 'Home', "/"),
-            ListTitleDrawerComponent(
-                Icons.insert_chart, 'Avaliação física', "/physical-assessment"),
           ],
         ),
       ),
