@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym/components/button_login_social.dart';
 import 'package:gym/pages/login/login_controller.dart';
-import 'package:gym/services/login/login_services.dart';
+import 'package:gym/pages/login/login_services.dart';
 import 'package:gym/pages/login/login_state.dart';
 import 'package:gym/theme/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
             SharedPreferences prefs = await SharedPreferences.getInstance();
             prefs.setString('userName', user.name!);
             prefs.setString('userPhotoUrl', user.photoUrl!);
-            Navigator.pushReplacementNamed(context, "/home", arguments: user);
+            Navigator.pushReplacementNamed(context, "/home");
           } else {
             setState(() {});
           }
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
           if (controller.state is LoginStateLoading) ...[
             CircularProgressIndicator(),
           ] else if (controller.state is LoginStateFailure) ...[
-            Text((controller.state as LoginStateFailure).message)
+            Text('Fail ${(controller.state as LoginStateFailure).message}')
           ] else
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),

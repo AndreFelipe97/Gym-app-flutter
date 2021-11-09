@@ -49,9 +49,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserModel user =
-        ModalRoute.of(context)!.settings.arguments as UserModel;
-
     return Scaffold(
       drawer: DraweComponent(),
       appBar: AppBarWidgetsComponents(
